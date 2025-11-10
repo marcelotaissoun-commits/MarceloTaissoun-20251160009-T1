@@ -21,7 +21,7 @@ int dias_no_mes(int mes, int ano) {
     return 0;
 }
 
-void testar_datas() {
+void testQ2() {
     printf("Testando ano_bissexto:\n");
 
     printf("1) 2000 (bissexto): %s\n", ano_bissexto(2000) ? "1" : "0");
@@ -41,6 +41,6 @@ void testar_datas() {
 }
 
 int main() {
-    testar_datas();
+    testQ2();
     return 0;
 }
