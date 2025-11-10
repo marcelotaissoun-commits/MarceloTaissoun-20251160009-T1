@@ -93,16 +93,16 @@ int validar(int diaa, int mess, int anoo) {
 void testQ2(){
     printf("Testes da funcao validar:\n");
 
-    printf("01) 10/10/2020: %s\n", validar(10,10,2020) ? "OK" : "ERRO");
-    printf("02) 29/02/2020 (bissexto): %s\n", validar(29,2,2020) ? "OK" : "ERRO");
-    printf("03) 31/12/1999: %s\n", validar(31,12,1999) ? "OK" : "ERRO");
+    printf("01) 10/10/2020: %s\n", validar(10,10,2020) ? "1" : "0");
+    printf("02) 29/02/2020 (bissexto): %s\n", validar(29,2,2020) ? "1" : "0");
+    printf("03) 31/12/1999: %s\n", validar(31,12,1999) ? "1" : "0");
 
-    printf("04) 31/02/2021: %s\n", !validar(31,2,2021) ? "OK" : "ERRO");
-    printf("05) 29/02/2021 (nao bissexto): %s\n", !validar(29,2,2021) ? "OK" : "ERRO");
-    printf("06) mes 13: %s\n", !validar(10,13,2020) ? "OK" : "ERRO");
-    printf("07) dia 0: %s\n", !validar(0,5,2020) ? "OK" : "ERRO");
-    printf("08) ano 0: %s\n", !validar(10,10,0) ? "OK" : "ERRO");
-    printf("09) dia maior que o mes permite: %s\n", !validar(31,4,2020) ? "OK" : "ERRO");
+    printf("04) 31/02/2021: %s\n", !validar(31,2,2021) ? "1" : "0");
+    printf("05) 29/02/2021 (nao bissexto): %s\n", !validar(29,2,2021) ? "1" : "0");
+    printf("06) mes 13: %s\n", !validar(10,13,2020) ? "1" : "0");
+    printf("07) dia 0: %s\n", !validar(0,5,2020) ? "1" : "0");
+    printf("08) ano 0: %s\n", !validar(10,10,0) ? "1" : "0");
+    printf("09) dia maior que o mes permite: %s\n", !validar(31,4,2020) ? "1" : "0");
 
     printf("Fim dos testes.\n\n");
     return 0;
