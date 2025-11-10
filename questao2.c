@@ -1,7 +1,5 @@
 #include<stdio.h>
 
-#include "marcelotaissoun20251160009.h"
-
 int ano_bissexto(int ano) {
     if (ano % 400 == 0) return 1;
     if (ano % 100 == 0) return 0;
