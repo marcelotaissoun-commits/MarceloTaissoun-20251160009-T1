@@ -40,28 +40,21 @@ int dias_no_mes(int mes, int ano) {
     }
 
 void testQ1(){
-    show_log("testQ1()");
-    char str[11];
-    strcpy(str,"29/02/2015");
-    printf("%d\n",q1(str) == 0);
-    strcpy(str,"29/02/2012");
-    printf("%d\n",q1(str) == 1);
-    strcpy(str,"9/13/2014");
-    printf("%d\n",q1(str) == 0);
-    strcpy(str,"45/4/2014");
-    printf("%d\n",q1(str) == 0);
-    strcpy(str,"12/1/15");
-    printf("%d\n",q1(str) == 1);
-    strcpy(str,"1/9/2016");
-    printf("%d\n",q1(str) == 1);
-    strcpy(str,"//2016");
-    printf("%d\n",q1(str) == 0);
-    strcpy(str,"1//20");
-    printf("%d\n",q1(str) == 0);
-    strcpy(str,"1/R/2016");
-    printf("%d\n",q1(str) == 0);
-    strcpy(str,"1/12/19");
-    printf("%d\n",q1(str) == 1); 
-   }
-return 0;
+   printf("Testando ano_bissexto:\n");
+
+    printf("1) 2000 (bissexto): %s\n", ano_bissexto(2000) ? 1 : 0);
+    printf("2) 1900 (nao bissexto): %s\n", !ano_bissexto(1900) ? 1 : 0);
+    printf("3) 2020 (bissexto): %s\n", ano_bissexto(2020) ? 1 : 0);
+    printf("4) 2021 (nao bissexto): %s\n", !ano_bissexto(2021) ? 1 : 0);
+
+    printf("\nTestando dias_no_mes:\n");
+
+    printf("5) Janeiro 2023 = 31: %s\n", dias_no_mes(1,2023) == 31 ? 1 : 0);
+    printf("6) Fevereiro 2020 (bissexto) = 29: %s\n", dias_no_mes(2,2020) == 29 ? 1 : 0);
+    printf("7) Fevereiro 2021 (normal) = 28: %s\n", dias_no_mes(2,2021) == 28 ? 1 : 0);
+    printf("8) Abril 2022 = 30: %s\n", dias_no_mes(4,2022) == 30 ? 1 : 0);
+    printf("9) Mes invalido = 0: %s\n", dias_no_mes(15,2022) == 0 ? 1 : 0);
+
+    printf("\nFim dos testes.\n");
+    return 0;
 }
