@@ -1,52 +1,52 @@
 #include<stdio.h>
-#include<ctype.h>
 
 #include "marcelotaissoun20251160009.h"
 
 char normalizar(char c) {
-    c = tolower(c);
+    if (c >= 'A' && c <= 'Z')
+        c = c + 32;
 
-    if (c == 'á' || c == 'à' || c == 'ã' || c == 'â') return 'a';
-    if (c == 'é' || c == 'ê') return 'e';
-    if (c == 'í') return 'i';
-    if (c == 'ó' || c == 'õ' || c == 'ô') return 'o';
-    if (c == 'ú') return 'u';
+    if (c == 'á' || c == 'à' || c == 'ã' || c == 'â' || c == 'ä') return 'a';
+    if (c == 'é' || c == 'è' || c == 'ê' || c == 'ë') return 'e';
+    if (c == 'í' || c == 'ì' || c == 'î' || c == 'ï') return 'i';
+    if (c == 'ó' || c == 'ò' || c == 'ô' || c == 'õ' || c == 'ö') return 'o';
+    if (c == 'ú' || c == 'ù' || c == 'û' || c == 'ü') return 'u';
+    if (c == 'ç') return 'c';
 
     return c;
 }
 
+int contarLetra(char texto[], char letra) {
+    int i = 0, cont = 0;
+    char alvo = normalizar(letra);
+
+    while (texto[i] != '\0') {
+        if (normalizar(texto[i]) == alvo)
+            cont++;
+        i++;
+    }
+
+    return cont;
+}
+
 void testQ3() {
-    printf("Testes da funcao normalizar:\n");
+    printf("TESTE 1:\n");
+    printf("Resultado: %d\n", contarLetra("O Vitória ganhou hoje", 'a'));
 
-    printf("1) 'a' -> a: %s\n", normalizar('a') == 'a' ? "OK" : "ERRO");
-    printf("2) 'Á' -> a: %s\n", normalizar('Á') == 'a' ? "OK" : "ERRO");
-    printf("3) 'ã' -> a: %s\n", normalizar('ã') == 'a' ? "OK" : "ERRO");
-    printf("4) 'Ê' -> e: %s\n", normalizar('Ê') == 'e' ? "OK" : "ERRO");
-    printf("5) 'é' -> e: %s\n", normalizar('é') == 'e' ? "OK" : "ERRO");
-    printf("6) 'Í' -> i: %s\n", normalizar('Í') == 'i' ? "OK" : "ERRO");
-    printf("7) 'õ' -> o: %s\n", normalizar('õ') == 'o' ? "OK" : "ERRO");
-    printf("8) 'Ú' -> u: %s\n", normalizar('Ú') == 'u' ? "OK" : "ERRO");
+    printf("\nTESTE 2:\n");
+    printf("Resultado: %d\n", contarLetra("Renato me passou um trabalho", 'a'));
 
-    printf("9) 'b' -> b (sem acento mesmo): %s\n", normalizar('b') == 'b' ? "OK" : "ERRO");
-    printf("10) '?' -> ? (não altera): %s\n", normalizar('?') == '?' ? "OK" : "ERRO");
+    printf("\nTESTE 3:\n");
+    printf("Resultado: %d\n", contarLetra("FÉRIAS NO NORDESTE", 'e'));
 
-    printf("\nFim dos testes.\n");
+    printf("\nTESTE 4:\n");
+    printf("Resultado: %d\n", contarLetra("O rato roeu a roupa do rei de Roma", 'o'));
+
+    printf("\nTESTE 5:\n");
+    printf("Resultado: %d\n", contarLetra("Texto sem nada parecido", 'x'));
 }
 
 int main() {
-    char texto[251] = "Programação é incrível e especial";
-    char letra = "a";
-    int i, cont = 0;
-
-    letra = normalizar(letra);
-
-    for (i = 0; texto[i] != '\0'; i++) {
-        if (normalizar(texto[i]) == letra) {
-            cont++;
-        }
-    }
-
-    printf("Quantidade de '%c' normalizado no texto: %d\n", letra, cont);
-  
+    testQ3();
     return 0;
 }
